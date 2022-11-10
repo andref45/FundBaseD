@@ -46,3 +46,23 @@ SUBSTRING(apellido2,1,1),
 'ó','o'),
 'ú','u') AS Correo
 FROM alumno;
+
+
+SELECT 
+	CONCAT (nombre, " ", apellido1, " ", apellido2) AS Estudiante,
+    LEFT(nombre, 1) AS InicialNombre,
+    LEFT(apellido1, 1) AS InicialApellido1,
+    LEFT(apellido2, 1) AS InicialApellido2,
+	REPLACE ( REPLACE ( REPLACE ( REPLACE ( REPLACE (
+    LOWER (
+        CONCAT (
+			LEFT(nombre,1), 
+            LEFT(apellido1, 1),
+			apellido2, "@utpl.edu.ec")
+        ),
+		'á', 'a'),
+        'é', 'e'),
+        'í', 'i'),
+        'ó', 'o'),
+        'ú', 'u') AS Correo 
+FROM ALUMNO;
