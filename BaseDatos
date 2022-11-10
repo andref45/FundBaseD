@@ -32,3 +32,17 @@ INSERT INTO alumno (id, nombre, apellido1, apellido2, fecha_nacimiento, es_repet
 INSERT INTO alumno (id, nombre, apellido1, apellido2, fecha_nacimiento, es_repetidor, teléfono) 
 		VALUES(10, 'Daniel', 'Moreno', 'Ruiz', '1998/02/03', 'no', NULL);
 SELECT * FROM instituto.alumno
+SELECT
+CONCAT(nombre," ",apellido1," ",apellido2) AS NombreCompleto,
+SUBSTRING(nombre,1,1) AS InicialesNombre,
+SUBSTRING(apellido1,1,1) AS InicialesApellido1,
+SUBSTRING(apellido2,1,1) AS InicialesApellido2,
+REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(LOWER(CONCAT(LOWER(SUBSTRING(nombre,1,1)),
+apellido1,
+SUBSTRING(apellido2,1,1),
+'@utpl.edu.ec')),'á','a'),
+'é','e'),
+'í','i'),
+'ó','o'),
+'ú','u') AS Correo
+FROM alumno;
